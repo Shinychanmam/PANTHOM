@@ -1,0 +1,2032 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PANTHOM — Endless info, One AI.</title>
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background: #050505;
+    color: #fff;
+
+    overflow-x: hidden;
+}
+
+body.locked {
+    overflow: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro {
+    position: fixed;
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #050505;
+
+    animation:
+        introFade 1s cubic-bezier(.77,0,.18,1) 1.5s forwards;
+
+    pointer-events: none;
+}
+
+.intro-logo {
+    font-size: clamp(45px, 9vw, 110px);
+
+    font-weight: 800;
+
+    letter-spacing: clamp(7px, 1.5vw, 15px);
+
+    opacity: 0;
+
+    animation:
+        logoReveal 1.1s cubic-bezier(.16,1,.3,1) .15s forwards;
+}
+
+@keyframes logoReveal {
+
+    from {
+        opacity: 0;
+        transform: scale(.85);
+        filter: blur(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes introFade {
+
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.background-glow {
+    position: fixed;
+
+    width: 650px;
+    height: 650px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.08),
+            transparent 68%
+        );
+
+    transform: translate(-50%, -50%);
+
+    pointer-events: none;
+
+    z-index: -1;
+
+    left: 50%;
+    top: 50%;
+
+    transition:
+        left .7s ease,
+        top .7s ease;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+nav {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 78px;
+
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 6%;
+
+    background:
+        rgba(5,5,5,.68);
+
+    backdrop-filter: blur(22px);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.07);
+
+    transition:
+        background .3s ease,
+        height .3s ease;
+}
+
+nav.scrolled {
+    background:
+        rgba(5,5,5,.92);
+
+    height: 70px;
+}
+
+.logo {
+    font-size: 19px;
+
+    font-weight: 800;
+
+    letter-spacing: 5px;
+
+    transition:
+        letter-spacing .3s ease;
+}
+
+.logo:hover {
+    letter-spacing: 7px;
+}
+
+.nav-links {
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+
+    list-style: none;
+
+    color: #888;
+
+    font-size: 14px;
+}
+
+.nav-links a {
+    transition:
+        color .25s ease;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+
+/* MOBILE MENU */
+
+.menu-button {
+    display: none;
+
+    width: 42px;
+    height: 42px;
+
+    border:
+        1px solid rgba(255,255,255,.12);
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.04);
+
+    color: white;
+
+    cursor: pointer;
+}
+
+.mobile-menu {
+    position: fixed;
+
+    inset: 78px 0 auto 0;
+
+    z-index: 999;
+
+    display: none;
+
+    padding: 25px;
+
+    background:
+        rgba(5,5,5,.96);
+
+    backdrop-filter: blur(25px);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.08);
+}
+
+.mobile-menu.open {
+    display: block;
+}
+
+.mobile-menu a {
+    display: block;
+
+    padding: 17px 0;
+
+    color: #aaa;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.07);
+}
+
+.mobile-menu a:hover {
+    color: white;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    min-height: 100svh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding:
+        130px 20px 100px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,.11),
+            transparent 45%
+        );
+}
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: min(900px, 90vw);
+    height: min(900px, 90vw);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.07),
+            transparent 68%
+        );
+
+    animation:
+        heroPulse 7s ease-in-out infinite alternate;
+}
+
+@keyframes heroPulse {
+
+    from {
+        transform: scale(.85);
+    }
+
+    to {
+        transform: scale(1.12);
+    }
+}
+
+.hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+    max-width: 1100px;
+
+    animation:
+        heroReveal 1.3s cubic-bezier(.16,1,.3,1) 1.65s both;
+}
+
+@keyframes heroReveal {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(55px)
+            scale(.96);
+
+        filter: blur(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+
+        filter: blur(0);
+    }
+}
+
+.badge {
+    display: inline-block;
+
+    padding: 8px 16px;
+
+    border:
+        1px solid rgba(255,255,255,.13);
+
+    border-radius: 999px;
+
+    color: #888;
+
+    font-size: 11px;
+
+    letter-spacing: 2.5px;
+
+    background:
+        rgba(255,255,255,.025);
+
+    margin-bottom: 28px;
+}
+
+.hero h1 {
+    font-size:
+        clamp(64px, 14vw, 180px);
+
+    line-height: .92;
+
+    letter-spacing:
+        clamp(-8px, -0.8vw, -4px);
+
+    font-weight: 800;
+
+    white-space: nowrap;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff 0%,
+            #aaa 100%
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+}
+
+.hero p {
+    margin-top: 30px;
+
+    font-size:
+        clamp(20px, 3vw, 32px);
+
+    line-height: 1.3;
+
+    color: #999;
+}
+
+.buttons {
+    margin-top: 40px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 14px;
+
+    flex-wrap: wrap;
+}
+
+.button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 48px;
+
+    padding:
+        13px 24px;
+
+    border-radius: 999px;
+
+    background: #fff;
+
+    color: #050505;
+
+    font-weight: 700;
+
+    border: 1px solid transparent;
+
+    cursor: pointer;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
+}
+
+.button:hover {
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 15px 45px rgba(255,255,255,.12);
+}
+
+.button:active {
+    transform:
+        translateY(-1px)
+        scale(.98);
+}
+
+.button.secondary {
+    background:
+        rgba(255,255,255,.03);
+
+    color: white;
+
+    border:
+        1px solid rgba(255,255,255,.15);
+
+    backdrop-filter: blur(10px);
+}
+
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+section {
+    width: min(1250px, 100%);
+
+    margin: auto;
+
+    padding:
+        140px 6%;
+}
+
+.label {
+    color: #666;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    line-height: 1.4;
+
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size:
+        clamp(48px, 7vw, 90px);
+
+    line-height: 1.02;
+
+    letter-spacing:
+        clamp(-5px, -.4vw, -2px);
+
+    margin-top: 18px;
+
+    margin-bottom: 60px;
+
+    overflow-wrap: break-word;
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+.reveal {
+    opacity: 0;
+
+    transform:
+        translateY(60px)
+        scale(.98);
+
+    filter: blur(8px);
+
+    transition:
+        opacity 1s cubic-bezier(.16,1,.3,1),
+        transform 1s cubic-bezier(.16,1,.3,1),
+        filter 1s cubic-bezier(.16,1,.3,1);
+}
+
+.reveal.active {
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+    filter: blur(0);
+}
+
+
+/* =========================================================
+   AI PACKS
+========================================================= */
+
+.packs {
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, minmax(0, 1fr));
+
+    gap: 15px;
+}
+
+.pack {
+    min-height: 250px;
+
+    padding: 28px;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #161616,
+            #090909
+        );
+
+    border:
+        1px solid rgba(255,255,255,.07);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    position: relative;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    transition:
+        transform .4s cubic-bezier(.16,1,.3,1),
+        border-color .3s ease,
+        box-shadow .4s ease;
+}
+
+.pack::before {
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.13),
+            transparent 70%
+        );
+
+    left: var(--mouse-x, 50%);
+    top: var(--mouse-y, 50%);
+
+    transform:
+        translate(-50%, -50%);
+
+    opacity: 0;
+
+    transition: opacity .3s ease;
+}
+
+.pack:hover::before {
+    opacity: 1;
+}
+
+.pack:hover {
+    transform:
+        translateY(-10px);
+
+    border-color:
+        rgba(255,255,255,.22);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.5);
+}
+
+.pack-icon {
+    position: relative;
+
+    font-size: 38px;
+
+    line-height: 1;
+
+    margin-bottom: 20px;
+}
+
+.pack h3 {
+    position: relative;
+
+    font-size: 22px;
+
+    line-height: 1.2;
+
+    margin-bottom: 8px;
+}
+
+.pack p {
+    position: relative;
+
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.features {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+.feature {
+    min-height: 330px;
+
+    padding: 45px;
+
+    border-radius: 32px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #121212,
+            #090909
+        );
+
+    border:
+        1px solid rgba(255,255,255,.07);
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition:
+        transform .4s ease,
+        border-color .3s ease;
+}
+
+.feature::after {
+    content: "";
+
+    position: absolute;
+
+    width: 320px;
+    height: 320px;
+
+    border-radius: 50%;
+
+    right: -150px;
+    bottom: -170px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.08),
+            transparent 70%
+        );
+
+    transition:
+        transform .5s ease;
+}
+
+.feature:hover {
+    transform:
+        translateY(-8px);
+
+    border-color:
+        rgba(255,255,255,.18);
+}
+
+.feature:hover::after {
+    transform:
+        scale(1.5);
+}
+
+.feature-number {
+    font-size: 70px;
+
+    line-height: .9;
+
+    font-weight: 800;
+
+    color: #292929;
+
+    margin-bottom: 38px;
+}
+
+.feature h3 {
+    position: relative;
+
+    z-index: 2;
+
+    font-size: 30px;
+
+    line-height: 1.2;
+
+    margin-bottom: 15px;
+}
+
+.feature p {
+    position: relative;
+
+    z-index: 2;
+
+    color: #777;
+
+    line-height: 1.8;
+
+    max-width: 600px;
+
+    overflow-wrap: break-word;
+}
+
+
+/* =========================================================
+   MARKETPLACE
+========================================================= */
+
+.marketplace {
+    padding: 60px;
+
+    border-radius: 35px;
+
+    background:
+        linear-gradient(
+            120deg,
+            #151515,
+            #080808
+        );
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
+    position: relative;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    transition:
+        transform .4s ease,
+        border-color .3s ease;
+}
+
+.marketplace:hover {
+    transform:
+        translateY(-7px);
+
+    border-color:
+        rgba(255,255,255,.2);
+}
+
+.marketplace::before {
+    content: "P";
+
+    position: absolute;
+
+    right: -50px;
+    top: -150px;
+
+    font-size: 400px;
+
+    font-weight: 900;
+
+    line-height: 1;
+
+    color:
+        rgba(255,255,255,.025);
+
+    pointer-events: none;
+}
+
+.marketplace h3 {
+    position: relative;
+
+    z-index: 2;
+
+    font-size:
+        clamp(30px, 5vw, 48px);
+
+    line-height: 1.1;
+
+    margin-bottom: 18px;
+}
+
+.marketplace p {
+    position: relative;
+
+    z-index: 2;
+
+    color: #777;
+
+    max-width: 650px;
+
+    line-height: 1.8;
+
+    overflow-wrap: break-word;
+}
+
+
+/* =========================================================
+   ROADMAP
+========================================================= */
+
+.roadmap {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+.year {
+    padding: 30px;
+
+    border-top:
+        1px solid #fff;
+
+    transition:
+        transform .3s ease;
+}
+
+.year:hover {
+    transform:
+        translateY(-6px);
+}
+
+.year h3 {
+    font-size: 35px;
+
+    line-height: 1.1;
+}
+
+.year p {
+    color: #777;
+
+    line-height: 1.7;
+
+    margin-top: 12px;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta {
+    text-align: center;
+
+    padding-bottom: 190px;
+}
+
+.cta h2 {
+    margin-bottom: 20px;
+}
+
+.cta p {
+    color: #777;
+
+    line-height: 1.6;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    border-top:
+        1px solid rgba(255,255,255,.07);
+
+    padding:
+        30px 6%;
+
+    color: #555;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1050px) {
+
+    .packs {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+
+}
+
+@media (max-width: 850px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+    .packs {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .features {
+        grid-template-columns:
+            1fr;
+    }
+
+    .roadmap {
+        grid-template-columns:
+            1fr;
+    }
+
+}
+
+@media (max-width: 550px) {
+
+    nav {
+        height: 70px;
+        padding: 0 5%;
+    }
+
+    nav.scrolled {
+        height: 66px;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    .mobile-menu {
+        inset: 70px 0 auto 0;
+    }
+
+    section {
+        padding:
+            100px 5%;
+    }
+
+    .hero {
+        padding:
+            110px 18px 80px;
+    }
+
+    .hero h1 {
+        font-size:
+            clamp(54px, 17vw, 78px);
+
+        letter-spacing: -5px;
+    }
+
+    .hero p {
+        font-size: 20px;
+    }
+
+    .buttons {
+        flex-direction: column;
+
+        width: min(320px, 100%);
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .button {
+        width: 100%;
+    }
+
+    h2 {
+        font-size:
+            clamp(44px, 13vw, 62px);
+
+        letter-spacing: -3px;
+
+        margin-bottom: 45px;
+    }
+
+    .packs {
+        grid-template-columns: 1fr;
+    }
+
+    .pack {
+        min-height: 210px;
+    }
+
+    .feature {
+        min-height: 280px;
+
+        padding: 30px;
+    }
+
+    .feature-number {
+        font-size: 55px;
+
+        margin-bottom: 30px;
+    }
+
+    .feature h3 {
+        font-size: 26px;
+    }
+
+    .marketplace {
+        padding: 32px;
+    }
+
+    .marketplace::before {
+        font-size: 250px;
+    }
+
+    footer {
+        flex-direction: column;
+    }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<div class="intro">
+
+    <div class="intro-logo">
+        PANTHOM
+    </div>
+
+</div>
+
+
+<!-- BACKGROUND LIGHT -->
+
+<div
+    class="background-glow"
+    id="backgroundGlow">
+</div>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<nav id="navbar">
+
+    <a href="#" class="logo">
+        PANTHOM
+    </a>
+
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="#packs">
+                AI Packs
+            </a>
+        </li>
+
+        <li>
+            <a href="#ai">
+                PANTHOM AI
+            </a>
+        </li>
+
+        <li>
+            <a href="#enterprise">
+                Enterprise
+            </a>
+        </li>
+
+        <li>
+            <a href="#marketplace">
+                Marketplace
+            </a>
+        </li>
+
+        <li>
+            <a href="#roadmap">
+                Roadmap
+            </a>
+        </li>
+
+    </ul>
+
+
+    <button
+        class="menu-button"
+        id="menuButton"
+        aria-label="Open menu">
+
+        ☰
+
+    </button>
+
+</nav>
+
+
+<!-- MOBILE MENU -->
+
+<div
+    class="mobile-menu"
+    id="mobileMenu">
+
+    <a href="#packs">
+        AI Packs
+    </a>
+
+    <a href="#ai">
+        PANTHOM AI
+    </a>
+
+    <a href="#enterprise">
+        Enterprise
+    </a>
+
+    <a href="#marketplace">
+        Marketplace
+    </a>
+
+    <a href="#roadmap">
+        Roadmap
+    </a>
+
+</div>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<header class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            THE AI PACK PLATFORM
+        </div>
+
+
+        <h1>
+            PANTHOM
+        </h1>
+
+
+        <p>
+            Endless info, One AI.
+        </p>
+
+
+        <div class="buttons">
+
+            <a
+                href="#packs"
+                class="button">
+
+                Explore Packs
+
+            </a>
+
+
+            <a
+                href="#ai"
+                class="button secondary">
+
+                Discover PANTHOM AI
+
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     AI PACKS
+===================================================== -->
+
+<section
+    id="packs"
+    class="reveal">
+
+    <div class="label">
+        01 / AI PACKS
+    </div>
+
+
+    <h2>
+        One AI.<br>
+        Every possibility.
+    </h2>
+
+
+    <div class="packs">
+
+
+        <a href="#ai" class="pack">
+
+            <div class="pack-icon">
+                ∑
+            </div>
+
+            <div>
+
+                <h3>
+                    Math
+                </h3>
+
+                <p>
+                    An AI Pack for mathematical
+                    learning and problem solving.
+                </p>
+
+            </div>
+
+        </a>
+
+
+        <a href="#ai" class="pack">
+
+            <div class="pack-icon">
+                ⌘
+            </div>
+
+            <div>
+
+                <h3>
+                    Coding
+                </h3>
+
+                <p>
+                    An AI Pack for coding,
+                    analysis, and debugging.
+                </p>
+
+            </div>
+
+        </a>
+
+
+        <a href="#ai" class="pack">
+
+            <div class="pack-icon">
+                ✈
+            </div>
+
+            <div>
+
+                <h3>
+                    Aviation
+                </h3>
+
+                <p>
+                    An AI Pack built for aviation
+                    knowledge and flight.
+                </p>
+
+            </div>
+
+        </a>
+
+
+        <a href="#ai" class="pack">
+
+            <div class="pack-icon">
+                DE
+            </div>
+
+            <div>
+
+                <h3>
+                    German
+                </h3>
+
+                <p>
+                    An AI Pack for learning
+                    and using German.
+                </p>
+
+            </div>
+
+        </a>
+
+
+        <a href="#ai" class="pack">
+
+            <div class="pack-icon">
+                ↗
+            </div>
+
+            <div>
+
+                <h3>
+                    Investing
+                </h3>
+
+                <p>
+                    An AI Pack for economic
+                    and investment knowledge.
+                </p>
+
+            </div>
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PANTHOM AI
+===================================================== -->
+
+<section
+    id="ai"
+    class="reveal">
+
+    <div class="label">
+        02 / PANTHOM AI
+    </div>
+
+
+    <h2>
+        AI that adapts<br>
+        to your world.
+    </h2>
+
+
+    <div class="features">
+
+
+        <div class="feature">
+
+            <div class="feature-number">
+                01
+            </div>
+
+
+            <h3>
+                Local Mode
+            </h3>
+
+
+            <p>
+                Run AI within your own environment
+                while reducing dependence on an
+                internet connection.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-number">
+                02
+            </div>
+
+
+            <h3>
+                Normal Mode
+            </h3>
+
+
+            <p>
+                Connect cloud-based AI with
+                services and tools for a broader
+                PANTHOM experience.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ENTERPRISE
+===================================================== -->
+
+<section
+    id="enterprise"
+    class="reveal">
+
+    <div class="label">
+        03 / ENTERPRISE
+    </div>
+
+
+    <h2>
+        Built for<br>
+        serious work.
+    </h2>
+
+
+    <div class="features">
+
+
+        <div class="feature">
+
+            <div class="feature-number">
+                03
+            </div>
+
+
+            <h3>
+                Private AI
+            </h3>
+
+
+            <p>
+                Deploy dedicated AI systems and
+                custom Packs designed around the
+                needs of your organization.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-number">
+                04
+            </div>
+
+
+            <h3>
+                Offline Ready
+            </h3>
+
+
+            <p>
+                Designed for environments where
+                security, privacy, and local data
+                control matter.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     MARKETPLACE
+===================================================== -->
+
+<section
+    id="marketplace"
+    class="reveal">
+
+    <div class="label">
+        04 / MARKETPLACE
+    </div>
+
+
+    <h2>
+        AI made<br>
+        by everyone.
+    </h2>
+
+
+    <div
+        class="marketplace"
+        onclick="showMarketplaceMessage()">
+
+        <h3>
+            PANTHOM Marketplace
+        </h3>
+
+
+        <p>
+            Discover, use, and share AI Packs
+            created by the PANTHOM community.
+
+            <br><br>
+
+            Creators can build their own Packs
+            and bring new capabilities to the
+            PANTHOM ecosystem.
+
+        </p>
+
+
+        <div
+            style="
+                margin-top:28px;
+                position:relative;
+                z-index:2;
+            ">
+
+            <span class="button">
+                Explore Marketplace
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ROADMAP
+===================================================== -->
+
+<section
+    id="roadmap"
+    class="reveal">
+
+    <div class="label">
+        05 / ROADMAP
+    </div>
+
+
+    <h2>
+        The beginning.
+    </h2>
+
+
+    <div class="roadmap">
+
+
+        <div class="year">
+
+            <h3>
+                2026
+            </h3>
+
+            <p>
+                PANTHOM Engine V1<br>
+                AI Pack platform launch
+            </p>
+
+        </div>
+
+
+        <div class="year">
+
+            <h3>
+                2027
+            </h3>
+
+            <p>
+                Creator ecosystem<br>
+                Marketplace expansion
+            </p>
+
+        </div>
+
+
+        <div class="year">
+
+            <h3>
+                2028
+            </h3>
+
+            <p>
+                Enterprise AI<br>
+                Offline AI & Server
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section
+    class="cta reveal">
+
+    <div class="label">
+        06 / PANTHOM
+    </div>
+
+
+    <h2>
+        Build your AI.
+    </h2>
+
+
+    <p>
+        Expand what your AI can do.
+    </p>
+
+
+    <a
+        href="#packs"
+        class="button">
+
+        Explore PANTHOM
+
+    </a>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <span>
+        © 2026 PANTHOM
+    </span>
+
+
+    <span>
+        Endless info, One AI.
+    </span>
+
+</footer>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+
+const revealObserver =
+    new IntersectionObserver(
+
+        (entries) => {
+
+            entries.forEach(
+                (entry) => {
+
+                    if (
+                        entry.isIntersecting
+                    ) {
+
+                        entry.target
+                            .classList
+                            .add("active");
+
+                        revealObserver
+                            .unobserve(
+                                entry.target
+                            );
+
+                    }
+
+                }
+            );
+
+        },
+
+        {
+            threshold: 0.12
+        }
+
+    );
+
+
+revealElements.forEach(
+    element => {
+        revealObserver.observe(element);
+    }
+);
+
+
+/* =====================================================
+   MOUSE BACKGROUND LIGHT
+===================================================== */
+
+const glow =
+    document.getElementById(
+        "backgroundGlow"
+    );
+
+
+document.addEventListener(
+    "mousemove",
+    (event) => {
+
+        glow.style.left =
+            event.clientX + "px";
+
+        glow.style.top =
+            event.clientY + "px";
+
+    }
+);
+
+
+/* =====================================================
+   PACK LIGHT EFFECT
+===================================================== */
+
+const packs =
+    document.querySelectorAll(".pack");
+
+
+packs.forEach(
+    pack => {
+
+        pack.addEventListener(
+            "mousemove",
+            (event) => {
+
+                const rect =
+                    pack.getBoundingClientRect();
+
+
+                const x =
+                    event.clientX -
+                    rect.left;
+
+
+                const y =
+                    event.clientY -
+                    rect.top;
+
+
+                pack.style.setProperty(
+                    "--mouse-x",
+                    x + "px"
+                );
+
+
+                pack.style.setProperty(
+                    "--mouse-y",
+                    y + "px"
+                );
+
+            }
+        );
+
+    }
+);
+
+
+/* =====================================================
+   NAVIGATION SCROLL
+===================================================== */
+
+const navbar =
+    document.getElementById(
+        "navbar"
+    );
+
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        if (
+            window.scrollY > 40
+        ) {
+
+            navbar.classList.add(
+                "scrolled"
+            );
+
+        } else {
+
+            navbar.classList.remove(
+                "scrolled"
+            );
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+const menuButton =
+    document.getElementById(
+        "menuButton"
+    );
+
+
+const mobileMenu =
+    document.getElementById(
+        "mobileMenu"
+    );
+
+
+menuButton.addEventListener(
+    "click",
+    () => {
+
+        mobileMenu.classList.toggle(
+            "open"
+        );
+
+    }
+);
+
+
+document
+    .querySelectorAll(
+        ".mobile-menu a"
+    )
+    .forEach(
+        link => {
+
+            link.addEventListener(
+                "click",
+                () => {
+
+                    mobileMenu.classList.remove(
+                        "open"
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
+/* =====================================================
+   MARKETPLACE BUTTON
+===================================================== */
+
+function showMarketplaceMessage() {
+
+    alert(
+        "PANTHOM Marketplace is coming soon."
+    );
+
+}
+
+
+/* =====================================================
+   PREVENT EMPTY HASH JUMP
+===================================================== */
+
+document
+    .querySelectorAll(
+        'a[href="#"]'
+    )
+    .forEach(
+        link => {
+
+            link.addEventListener(
+                "click",
+                event => {
+
+                    event.preventDefault();
+
+                    window.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                    });
+
+                }
+            );
+
+        }
+    );
+
+</script>
+
+</body>
+</html>
+```
