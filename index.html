@@ -1,1 +1,1239 @@
-<div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="PANTHOM — Endless info, One AI."
+  >
+
+  <title>PANTHOM — Endless info, One AI.</title>
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+  <div class="noise"></div>
+  <div class="cursor-glow"></div>
+  <div class="scanline"></div>
+
+  <!-- NAVIGATION -->
+
+  <header class="topbar">
+
+    <a href="#hero" class="logo">
+      <span class="logo-mark">P</span>
+      <span>PANTHOM</span>
+    </a>
+
+    <nav class="desktop-nav">
+      <a href="#intelligence">Intelligence</a>
+      <a href="#packs">Packs</a>
+      <a href="#network">Network</a>
+      <a href="#enterprise">Enterprise</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <button
+      class="menu-button"
+      id="menuButton"
+      aria-label="Open navigation"
+    >
+      <span></span>
+      <span></span>
+    </button>
+
+  </header>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#intelligence">Intelligence</a>
+    <a href="#packs">Packs</a>
+    <a href="#network">Network</a>
+    <a href="#enterprise">Enterprise</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+
+  <main>
+
+    <!-- HERO -->
+
+    <section class="hero" id="hero">
+
+      <div class="hero-grid"></div>
+
+      <div class="hero-copy reveal">
+
+        <div class="eyebrow">
+          <span class="status-dot"></span>
+          PANTHOM AI SYSTEM / ONLINE
+        </div>
+
+        <h1>
+          Endless info.
+          <br>
+          <span>One AI.</span>
+        </h1>
+
+        <p class="hero-description">
+          An adaptive AI platform built around knowledge,
+          capabilities and intelligent Packs.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#intelligence" class="button button-primary">
+            Explore PANTHOM
+            <span>↗</span>
+          </a>
+
+          <a href="#packs" class="button button-ghost">
+            Explore Packs
+          </a>
+        </div>
+
+      </div>
+
+
+      <!-- CORE -->
+
+      <div class="hero-core-area">
+
+        <div class="core-label core-label-top">
+          <span>CORE</span>
+          <strong>01</strong>
+        </div>
+
+        <div class="core">
+
+          <div class="core-ring ring-1"></div>
+          <div class="core-ring ring-2"></div>
+          <div class="core-ring ring-3"></div>
+
+          <div class="core-orbit orbit-a"></div>
+          <div class="core-orbit orbit-b"></div>
+
+          <div class="core-inner">
+            <span class="core-symbol">P</span>
+            <span class="core-pulse"></span>
+          </div>
+
+        </div>
+
+        <div class="core-data">
+          <span>SYSTEM</span>
+          <strong>ADAPTIVE</strong>
+        </div>
+
+      </div>
+
+
+      <div class="hero-metrics">
+
+        <div>
+          <span>01</span>
+          <strong>AI CORE</strong>
+        </div>
+
+        <div>
+          <span>05</span>
+          <strong>PACKS</strong>
+        </div>
+
+        <div>
+          <span>∞</span>
+          <strong>POSSIBILITIES</strong>
+        </div>
+
+      </div>
+
+      <div class="scroll-indicator">
+        <span>SCROLL TO ENTER</span>
+        <i></i>
+      </div>
+
+    </section>
+
+
+    <!-- INTELLIGENCE -->
+
+    <section class="section intelligence" id="intelligence">
+
+      <div class="section-head reveal">
+        <div>
+          <span class="section-number">01 / INTELLIGENCE</span>
+          <h2>
+            One core.
+            <br>
+            Multiple realities.
+          </h2>
+        </div>
+
+        <p>
+          PANTHOM adapts its environment to the way
+          you need AI to work.
+        </p>
+      </div>
+
+
+      <div class="mode-system reveal">
+
+        <div class="mode-core">
+
+          <div class="mode-core-ring"></div>
+
+          <div class="mode-core-center">
+            <span>P</span>
+            <small>CORE</small>
+          </div>
+
+        </div>
+
+
+        <div class="mode-list">
+
+          <button
+            class="mode-card active"
+            data-mode="local"
+          >
+            <span class="mode-index">01</span>
+
+            <div>
+              <strong>LOCAL</strong>
+              <p>
+                Private intelligence running
+                directly on your machine.
+              </p>
+            </div>
+
+            <span class="mode-arrow">↗</span>
+          </button>
+
+
+          <button
+            class="mode-card"
+            data-mode="normal"
+          >
+            <span class="mode-index">02</span>
+
+            <div>
+              <strong>NORMAL</strong>
+              <p>
+                Connected AI with access
+                to the broader PANTHOM ecosystem.
+              </p>
+            </div>
+
+            <span class="mode-arrow">↗</span>
+          </button>
+
+
+          <button
+            class="mode-card"
+            data-mode="enterprise"
+          >
+            <span class="mode-index">03</span>
+
+            <div>
+              <strong>ENTERPRISE</strong>
+              <p>
+                Private infrastructure,
+                controlled deployment and security.
+              </p>
+            </div>
+
+            <span class="mode-arrow">↗</span>
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="mode-inspector reveal">
+
+        <div>
+          <span>ACTIVE ENVIRONMENT</span>
+          <strong id="modeTitle">LOCAL</strong>
+        </div>
+
+        <div class="inspector-line">
+          <span>PRIVACY</span>
+          <i><b id="privacyBar"></b></i>
+        </div>
+
+        <div class="inspector-line">
+          <span>CONNECTIVITY</span>
+          <i><b id="connectivityBar"></b></i>
+        </div>
+
+        <div class="inspector-line">
+          <span>CONTROL</span>
+          <i><b id="controlBar"></b></i>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PACKS -->
+
+    <section class="section packs" id="packs">
+
+      <div class="section-head reveal">
+        <div>
+          <span class="section-number">02 / PACK ENGINE</span>
+          <h2>
+            Intelligence,
+            <br>
+            modularized.
+          </h2>
+        </div>
+
+        <p>
+          Give the AI a domain.
+          Give it tools.
+          Give it a purpose.
+        </p>
+      </div>
+
+
+      <div class="pack-stage reveal">
+
+        <div class="pack-center">
+
+          <div class="pack-center-ring"></div>
+
+          <span>P</span>
+
+          <small>
+            PACK ENGINE
+          </small>
+
+        </div>
+
+
+        <button
+          class="pack-node pack-math"
+          data-pack="math"
+        >
+          <span>01</span>
+          <strong>MATH</strong>
+          <small>REASONING</small>
+        </button>
+
+
+        <button
+          class="pack-node pack-code"
+          data-pack="coding"
+        >
+          <span>02</span>
+          <strong>CODING</strong>
+          <small>DEVELOPMENT</small>
+        </button>
+
+
+        <button
+          class="pack-node pack-aviation"
+          data-pack="aviation"
+        >
+          <span>03</span>
+          <strong>AVIATION</strong>
+          <small>FLIGHT SYSTEMS</small>
+        </button>
+
+
+        <button
+          class="pack-node pack-german"
+          data-pack="german"
+        >
+          <span>04</span>
+          <strong>GERMAN</strong>
+          <small>LANGUAGE</small>
+        </button>
+
+
+        <button
+          class="pack-node pack-investing"
+          data-pack="investing"
+        >
+          <span>05</span>
+          <strong>INVESTING</strong>
+          <small>MARKETS</small>
+        </button>
+
+      </div>
+
+
+      <div class="pack-console reveal">
+
+        <div class="console-top">
+          <span id="packStatus">PACK / MATH</span>
+          <span>READY</span>
+        </div>
+
+        <div class="console-body">
+
+          <div>
+            <span>CAPABILITY</span>
+            <strong id="packCapability">
+              Structured reasoning
+            </strong>
+          </div>
+
+          <div>
+            <span>TOOLS</span>
+            <strong id="packTools">
+              Solver / Graph / Logic
+            </strong>
+          </div>
+
+          <div>
+            <span>STATE</span>
+            <strong>AVAILABLE</strong>
+          </div>
+
+        </div>
+
+        <button
+          class="console-launch"
+          id="launchPack"
+        >
+          Initialize Pack
+          <span>→</span>
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- NETWORK -->
+
+    <section class="section network" id="network">
+
+      <div class="section-head reveal">
+
+        <div>
+          <span class="section-number">03 / NEURAL NETWORK</span>
+
+          <h2>
+            Knowledge
+            <br>
+            becomes a system.
+          </h2>
+        </div>
+
+        <p>
+          Packs are not isolated tools.
+          They become connected capabilities.
+        </p>
+
+      </div>
+
+
+      <div class="network-map reveal">
+
+        <svg
+          class="network-lines"
+          viewBox="0 0 1000 600"
+          preserveAspectRatio="none"
+        >
+          <line x1="500" y1="300" x2="220" y2="120"></line>
+          <line x1="500" y1="300" x2="780" y2="120"></line>
+          <line x1="500" y1="300" x2="170" y2="470"></line>
+          <line x1="500" y1="300" x2="820" y2="470"></line>
+          <line x1="220" y1="120" x2="780" y2="120"></line>
+          <line x1="170" y1="470" x2="820" y2="470"></line>
+        </svg>
+
+
+        <button class="network-node node-center active">
+          <span>P</span>
+          <small>CORE</small>
+        </button>
+
+        <button class="network-node node-a">
+          <strong>REASONING</strong>
+          <small>MATH</small>
+        </button>
+
+        <button class="network-node node-b">
+          <strong>BUILD</strong>
+          <small>CODING</small>
+        </button>
+
+        <button class="network-node node-c">
+          <strong>FLIGHT</strong>
+          <small>AVIATION</small>
+        </button>
+
+        <button class="network-node node-d">
+          <strong>LANGUAGE</strong>
+          <small>GERMAN</small>
+        </button>
+
+      </div>
+
+
+      <div class="network-console reveal">
+
+        <span>NETWORK STATUS</span>
+
+        <strong>
+          <i></i>
+          SYSTEM CONNECTED
+        </strong>
+
+        <p>
+          Select a node to inspect its relationship
+          with the PANTHOM Core.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- WORKFLOW -->
+
+    <section class="section workflow">
+
+      <div class="section-head reveal">
+
+        <div>
+          <span class="section-number">04 / WORKFLOW</span>
+
+          <h2>
+            Don't just ask AI.
+            <br>
+            Build with it.
+          </h2>
+        </div>
+
+      </div>
+
+
+      <div class="workflow-interface reveal">
+
+        <div class="workflow-sidebar">
+
+          <button
+            class="workflow-step active"
+            data-step="0"
+          >
+            <span>01</span>
+            SELECT
+          </button>
+
+          <button
+            class="workflow-step"
+            data-step="1"
+          >
+            <span>02</span>
+            EXECUTE
+          </button>
+
+          <button
+            class="workflow-step"
+            data-step="2"
+          >
+            <span>03</span>
+            EXPAND
+          </button>
+
+          <button
+            class="workflow-step"
+            data-step="3"
+          >
+            <span>04</span>
+            SHARE
+          </button>
+
+        </div>
+
+
+        <div class="workflow-screen">
+
+          <div class="workflow-grid"></div>
+
+          <div class="workflow-content">
+
+            <span id="workflowNumber">
+              STEP 01
+            </span>
+
+            <h3 id="workflowTitle">
+              SELECT
+            </h3>
+
+            <p id="workflowText">
+              Choose the intelligence Pack
+              that matches the problem.
+            </p>
+
+            <div class="workflow-terminal">
+              <span>></span>
+              <strong id="workflowTerminal">
+                SELECT_PACK("MATH")
+              </strong>
+              <i></i>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- MARKETPLACE -->
+
+    <section class="section marketplace">
+
+      <div class="section-head reveal">
+
+        <div>
+          <span class="section-number">05 / MARKETPLACE</span>
+
+          <h2>
+            The AI ecosystem
+            <br>
+            grows with you.
+          </h2>
+        </div>
+
+        <p>
+          Discover Packs created for different
+          problems, industries and workflows.
+        </p>
+
+      </div>
+
+
+      <div class="market-filters reveal">
+
+        <button class="market-filter active" data-filter="all">
+          ALL
+        </button>
+
+        <button class="market-filter" data-filter="education">
+          EDUCATION
+        </button>
+
+        <button class="market-filter" data-filter="development">
+          DEVELOPMENT
+        </button>
+
+        <button class="market-filter" data-filter="business">
+          BUSINESS
+        </button>
+
+        <button class="market-filter" data-filter="creative">
+          CREATIVE
+        </button>
+      </div>
+
+
+      <div class="market-grid reveal">
+
+        <article
+          class="market-card"
+          data-category="education"
+        >
+          <span>EDU / 001</span>
+          <h3>Math Reasoning</h3>
+          <p>
+            Structured mathematical reasoning.
+          </p>
+          <button>OPEN PACK →</button>
+        </article>
+
+
+        <article
+          class="market-card"
+          data-category="development"
+        >
+          <span>DEV / 014</span>
+          <h3>Code Architect</h3>
+          <p>
+            Architecture and development workflows.
+          </p>
+          <button>OPEN PACK →</button>
+        </article>
+
+
+        <article
+          class="market-card"
+          data-category="business"
+        >
+          <span>BUS / 021</span>
+          <h3>Market Intelligence</h3>
+          <p>
+            Research, analysis and structured insights.
+          </p>
+          <button>OPEN PACK →</button>
+        </article>
+
+
+        <article
+          class="market-card"
+          data-category="creative"
+        >
+          <span>CRE / 032</span>
+          <h3>Creative Studio</h3>
+          <p>
+            Concept development and creative workflows.
+          </p>
+          <button>OPEN PACK →</button>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- CREATOR -->
+
+    <section class="section creator">
+
+      <div class="creator-visual reveal">
+
+        <div class="creator-stack">
+
+          <div class="creator-layer layer-1">
+            KNOWLEDGE
+          </div>
+
+          <div class="creator-layer layer-2">
+            TOOLS
+          </div>
+
+          <div class="creator-layer layer-3">
+            LOGIC
+          </div>
+
+          <div class="creator-layer layer-4">
+            PACK
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="creator-copy reveal">
+
+        <span class="section-number">
+          06 / CREATOR
+        </span>
+
+        <h2>
+          Don't just use
+          <br>
+          intelligence.
+          <br>
+          <span>Create it.</span>
+        </h2>
+
+        <p>
+          PANTHOM turns knowledge and tools
+          into reusable intelligence Packs.
+        </p>
+
+
+        <div class="creator-builder">
+
+          <div class="builder-step active">
+            <span>01</span>
+            NAME
+          </div>
+
+          <div class="builder-step">
+            <span>02</span>
+            KNOWLEDGE
+          </div>
+
+          <div class="builder-step">
+            <span>03</span>
+            TOOLS
+          </div>
+
+          <div class="builder-step">
+            <span>04</span>
+            TEST
+          </div>
+
+          <div class="builder-step">
+            <span>05</span>
+            PUBLISH
+          </div>
+
+        </div>
+
+        <button class="button button-primary">
+          Start Building
+          <span>→</span>
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- ENTERPRISE -->
+
+    <section class="section enterprise" id="enterprise">
+
+      <div class="section-head reveal">
+
+        <div>
+          <span class="section-number">
+            07 / ENTERPRISE
+          </span>
+
+          <h2>
+            Intelligence
+            <br>
+            without compromise.
+          </h2>
+        </div>
+
+        <p>
+          Private infrastructure designed
+          around control, security and deployment.
+        </p>
+
+      </div>
+
+
+      <div class="enterprise-system reveal">
+
+        <div class="enterprise-core">
+          <span>P</span>
+          <small>PRIVATE CORE</small>
+        </div>
+
+
+        <button
+          class="enterprise-layer active"
+          data-layer="privacy"
+        >
+          <span>01</span>
+          PRIVATE AI
+        </button>
+
+        <button
+          class="enterprise-layer"
+          data-layer="offline"
+        >
+          <span>02</span>
+          OFFLINE SERVER
+        </button>
+
+        <button
+          class="enterprise-layer"
+          data-layer="security"
+        >
+          <span>03</span>
+          SECURITY
+        </button>
+
+        <button
+          class="enterprise-layer"
+          data-layer="deployment"
+        >
+          <span>04</span>
+          DEPLOYMENT
+        </button>
+
+      </div>
+
+
+      <div class="enterprise-inspector reveal">
+
+        <span>ARCHITECTURE LAYER</span>
+
+        <strong id="enterpriseTitle">
+          PRIVATE AI
+        </strong>
+
+        <p id="enterpriseText">
+          Dedicated intelligence designed
+          for controlled enterprise environments.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ROADMAP -->
+
+    <section class="section roadmap">
+
+      <div class="section-head reveal">
+
+        <div>
+          <span class="section-number">
+            08 / ROADMAP
+          </span>
+
+          <h2>
+            Build the system.
+            <br>
+            Then expand it.
+          </h2>
+        </div>
+
+      </div>
+
+
+      <div class="timeline reveal">
+
+        <div class="timeline-line"></div>
+
+        <button
+          class="timeline-year active"
+          data-year="2026"
+        >
+          2026
+        </button>
+
+        <button
+          class="timeline-year"
+          data-year="2027"
+        >
+          2027
+        </button>
+
+        <button
+          class="timeline-year"
+          data-year="2028"
+        >
+          2028
+        </button>
+
+        <button
+          class="timeline-year"
+          data-year="2029"
+        >
+          2029
+        </button>
+
+        <button
+          class="timeline-year"
+          data-year="2030"
+        >
+          2030
+        </button>
+
+        <button
+          class="timeline-year"
+          data-year="2032"
+        >
+          2032
+        </button>
+
+      </div>
+
+
+      <div class="roadmap-display reveal">
+
+        <span id="roadmapYear">2026</span>
+
+        <h3 id="roadmapTitle">
+          PACK ENGINE V1
+        </h3>
+
+        <p id="roadmapText">
+          The foundation of the PANTHOM intelligence
+          architecture.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- GLOBAL NETWORK -->
+
+    <section class="section global-network">
+
+      <div class="section-head reveal">
+
+        <div>
+          <span class="section-number">
+            09 / GLOBAL VISION
+          </span>
+
+          <h2>
+            Intelligence
+            <br>
+            without borders.
+          </h2>
+        </div>
+
+        <p>
+          A global vision for a connected
+          PANTHOM ecosystem.
+        </p>
+
+      </div>
+
+
+      <div class="world-interface reveal">
+
+        <div class="world-grid"></div>
+
+        <div class="world-orbit orbit-one"></div>
+        <div class="world-orbit orbit-two"></div>
+
+        <div class="world-node node-na">
+          <span></span>
+          <strong>NORTH AMERICA</strong>
+        </div>
+
+        <div class="world-node node-eu">
+          <span></span>
+          <strong>EUROPE</strong>
+        </div>
+
+        <div class="world-node node-as">
+          <span></span>
+          <strong>ASIA</strong>
+        </div>
+
+        <div class="world-node node-oc">
+          <span></span>
+          <strong>OCEANIA</strong>
+        </div>
+
+        <div class="world-core">
+          <span>P</span>
+          <small>PANTHOM</small>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section class="section contact" id="contact">
+
+      <div class="contact-intro reveal">
+
+        <span class="section-number">
+          10 / CONTACT
+        </span>
+
+        <h2>
+          Build something
+          <br>
+          <span>intelligent.</span>
+        </h2>
+
+        <p>
+          Have an idea, collaboration,
+          partnership or question?
+          Send a message to PANTHOM.
+        </p>
+
+        <div class="contact-status-line">
+          <span class="status-dot"></span>
+          CONTACT CHANNEL / AVAILABLE
+        </div>
+
+      </div>
+
+
+      <form
+        class="contact-form reveal"
+        id="contactForm"
+      >
+
+        <div class="form-row">
+
+          <label>
+            NAME
+
+            <input
+              type="text"
+              name="name"
+              placeholder="Your name"
+              required
+            >
+          </label>
+
+
+          <label>
+            EMAIL
+
+            <input
+              type="email"
+              name="email"
+              placeholder="you@example.com"
+              required
+            >
+          </label>
+
+        </div>
+
+
+        <label>
+          SUBJECT
+
+          <input
+            type="text"
+            name="subject"
+            placeholder="What would you like to talk about?"
+            required
+          >
+        </label>
+
+
+        <label>
+          MESSAGE
+
+          <textarea
+            name="message"
+            rows="7"
+            placeholder="Tell us about it..."
+            required
+          ></textarea>
+        </label>
+
+
+        <!-- Honeypot -->
+
+        <input
+          class="honeypot"
+          type="text"
+          name="website"
+          tabindex="-1"
+          autocomplete="off"
+        >
+
+
+        <div class="contact-submit">
+
+          <div
+            id="contactStatus"
+            class="contact-status"
+          ></div>
+
+          <button
+            type="submit"
+            class="button button-primary"
+          >
+            Send Message
+            <span>↗</span>
+          </button>
+
+        </div>
+
+      </form>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer class="footer">
+
+    <div class="footer-brand">
+      <span class="logo-mark">P</span>
+      <strong>PANTHOM</strong>
+      <p>Endless info, One AI.</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="#intelligence">Intelligence</a>
+      <a href="#packs">Packs</a>
+      <a href="#network">Network</a>
+      <a href="#enterprise">Enterprise</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 PANTHOM</span>
+      <span>SYSTEM / ONLINE</span>
+    </div>
+
+  </footer>
+
+
+  <!-- PACK MODAL -->
+
+  <div
+    class="pack-modal"
+    id="packModal"
+  >
+
+    <div class="modal-backdrop"></div>
+
+    <div class="modal-window">
+
+      <button
+        class="modal-close"
+        id="modalClose"
+      >
+        ×
+      </button>
+
+      <span class="section-number">
+        PACK INTERFACE
+      </span>
+
+      <h2 id="modalTitle">
+        Math
+      </h2>
+
+      <p id="modalDescription">
+        Structured mathematical reasoning.
+      </p>
+
+      <div class="modal-terminal">
+
+        <div>
+          <span>STATUS</span>
+          <strong>READY</strong>
+        </div>
+
+        <div>
+          <span>ENGINE</span>
+          <strong id="modalEngine">
+            REASONING
+          </strong>
+        </div>
+
+        <div>
+          <span>ACCESS</span>
+          <strong>AVAILABLE</strong>
+        </div>
+
+      </div>
+
+      <button class="button button-primary modal-action">
+        Initialize
+        <span>→</span>
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <script src="./script.js"></script>
+
+</body>
+</html>
