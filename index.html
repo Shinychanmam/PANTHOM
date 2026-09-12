@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>PANTHOM — Endless info. One AI.</title>
-
-  <!-- CSS -->
+  <meta name="description" content="PANTHOM — Endless info, One AI.">
+  <title>PANTHOM — Endless info, One AI.</title>
   <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
 
-  <!-- NAV -->
-  <header class="navbar">
-    <a href="#home" class="logo">PANTHOM</a>
+  <div class="noise"></div>
+  <div class="cursor-glow"></div>
 
-    <nav>
+  <header class="navbar">
+    <a href="#hero" class="logo">PANTHOM</a>
+
+    <nav class="nav-links">
       <a href="#ai">AI</a>
       <a href="#packs">Packs</a>
       <a href="#marketplace">Marketplace</a>
@@ -24,97 +24,253 @@
       <a href="#roadmap">Roadmap</a>
     </nav>
 
-    <a href="#start" class="nav-button">Start</a>
+    <a href="#start" class="nav-button">Get Started</a>
   </header>
 
 
-  <!-- HERO -->
   <main>
 
-    <section id="home" class="hero">
+    <section class="hero" id="hero">
+      <div class="hero-orbit orbit-one"></div>
+      <div class="hero-orbit orbit-two"></div>
+      <div class="hero-grid"></div>
 
       <div class="hero-content reveal">
-
-        <div class="eyebrow">
-          NEXT GENERATION AI PLATFORM
-        </div>
+        <p class="eyebrow">THE NEXT AI PLATFORM</p>
 
         <h1>
           Endless info.<br>
           <span>One AI.</span>
         </h1>
 
-        <p>
-          PANTHOM connects knowledge, AI and specialized
-          Packs into one intelligent platform.
+        <p class="hero-description">
+          PANTHOM is an AI platform built around knowledge packs,
+          local intelligence, creators, and scalable AI infrastructure.
         </p>
 
-        <div class="hero-buttons">
-          <a href="#ai" class="button primary">
-            Explore PANTHOM
-          </a>
-
-          <a href="#packs" class="button secondary">
-            Explore Packs
-          </a>
+        <div class="hero-actions">
+          <a href="#start" class="primary-button">Start with PANTHOM</a>
+          <a href="#ai" class="secondary-button">Explore Platform</a>
         </div>
-
       </div>
 
-      <div class="hero-orbit">
-
-        <div class="orbit orbit-1"></div>
-        <div class="orbit orbit-2"></div>
-        <div class="orbit orbit-3"></div>
-
-        <div class="core">
-          <span>P</span>
-        </div>
-
+      <div class="hero-status reveal delay-one">
+        <div class="status-dot"></div>
+        <span>PANTHOM SYSTEM ONLINE</span>
       </div>
 
+      <div class="scroll-indicator">
+        <span>SCROLL TO EXPLORE</span>
+        <div class="scroll-line"></div>
+      </div>
     </section>
 
 
-    <!-- AI -->
-    <section id="ai" class="section">
+    <section class="intro section-dark">
+      <div class="intro-inner reveal">
+        <p class="eyebrow">A DIFFERENT WAY TO USE AI</p>
 
+        <h2>
+          AI should not be<br>
+          limited to one model.
+        </h2>
+
+        <p>
+          PANTHOM connects AI models with specialized knowledge packs,
+          creator-built intelligence, local computing, and enterprise systems.
+        </p>
+      </div>
+    </section>
+
+
+    <section class="ai-section section" id="ai">
       <div class="section-heading reveal">
-        <span>01 / PANTHOM AI</span>
-        <h2>One platform.<br>Three ways to run AI.</h2>
+        <div>
+          <p class="eyebrow">01 / PANTHOM AI</p>
+          <h2>One platform.<br><span>Multiple modes.</span></h2>
+        </div>
+
+        <p class="section-description">
+          Choose the environment that fits the way you work.
+        </p>
       </div>
 
-      <div class="mode-grid">
+      <div class="mode-layout">
 
-        <article class="mode-card reveal">
+        <article class="mode-card large reveal">
           <div class="card-number">01</div>
-          <h3>Local AI</h3>
+          <div class="card-icon">◉</div>
+          <h3>Local</h3>
           <p>
-            Run AI directly on your own device.
-            Private, fast and available even without
-            an internet connection.
+            Run AI directly on your own hardware.
+            Designed for privacy, offline environments,
+            and independent computing.
           </p>
-          <strong>PRIVATE / LOCAL</strong>
+
+          <div class="card-tags">
+            <span>OFFLINE</span>
+            <span>PRIVATE</span>
+            <span>LOCAL AI</span>
+          </div>
         </article>
 
-        <article class="mode-card featured reveal">
+        <article class="mode-card reveal delay-one">
           <div class="card-number">02</div>
-          <h3>PANTHOM Cloud</h3>
+          <div class="card-icon">↗</div>
+          <h3>Normal</h3>
           <p>
-            Powerful cloud AI for everyday work,
-            learning, creation and exploration.
+            Connect to powerful cloud infrastructure
+            for fast and scalable AI experiences.
           </p>
-          <strong>NORMAL / CLOUD</strong>
+
+          <div class="card-tags">
+            <span>CLOUD</span>
+            <span>FAST</span>
+          </div>
         </article>
 
-        <article class="mode-card reveal">
+        <article class="mode-card reveal delay-two">
           <div class="card-number">03</div>
+          <div class="card-icon">▣</div>
           <h3>Enterprise</h3>
           <p>
-            Private AI infrastructure for companies,
-            organizations and specialized environments.
+            Deploy private AI environments for companies,
+            organizations, and high-security workflows.
           </p>
-          <strong>PRIVATE / ENTERPRISE</strong>
+
+          <div class="card-tags">
+            <span>PRIVATE SERVER</span>
+            <span>SECURITY</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+
+    <section class="packs-section section" id="packs">
+
+      <div class="section-heading reveal">
+        <div>
+          <p class="eyebrow">02 / AI PACKS</p>
+          <h2>Knowledge becomes<br><span>expandable.</span></h2>
+        </div>
+
+        <p class="section-description">
+          Packs give AI specialized knowledge, workflows,
+          tools, and capabilities.
+        </p>
+      </div>
+
+      <div class="pack-showcase">
+
+        <article class="pack-card pack-math reveal">
+          <div class="pack-top">
+            <span>PACK 001</span>
+            <span>CORE</span>
+          </div>
+
+          <div class="pack-symbol">∑</div>
+
+          <h3>Math</h3>
+
+          <p>
+            Mathematics, problem solving, formulas,
+            concepts, and structured reasoning.
+          </p>
+
+          <div class="pack-footer">
+            <span>KNOWLEDGE</span>
+            <span>→</span>
+          </div>
+        </article>
+
+
+        <article class="pack-card pack-code reveal delay-one">
+          <div class="pack-top">
+            <span>PACK 002</span>
+            <span>CORE</span>
+          </div>
+
+          <div class="pack-symbol">{ }</div>
+
+          <h3>Coding</h3>
+
+          <p>
+            Programming languages, development workflows,
+            debugging, architecture, and automation.
+          </p>
+
+          <div class="pack-footer">
+            <span>KNOWLEDGE</span>
+            <span>→</span>
+          </div>
+        </article>
+
+
+        <article class="pack-card pack-aviation reveal delay-two">
+          <div class="pack-top">
+            <span>PACK 003</span>
+            <span>CORE</span>
+          </div>
+
+          <div class="pack-symbol">✈</div>
+
+          <h3>Aviation</h3>
+
+          <p>
+            Aircraft, flight systems, aviation knowledge,
+            operations, and training.
+          </p>
+
+          <div class="pack-footer">
+            <span>KNOWLEDGE</span>
+            <span>→</span>
+          </div>
+        </article>
+
+
+        <article class="pack-card pack-german reveal">
+          <div class="pack-top">
+            <span>PACK 004</span>
+            <span>CORE</span>
+          </div>
+
+          <div class="pack-symbol">DE</div>
+
+          <h3>German</h3>
+
+          <p>
+            German vocabulary, grammar, communication,
+            and language learning systems.
+          </p>
+
+          <div class="pack-footer">
+            <span>KNOWLEDGE</span>
+            <span>→</span>
+          </div>
+        </article>
+
+
+        <article class="pack-card pack-investing reveal delay-one">
+          <div class="pack-top">
+            <span>PACK 005</span>
+            <span>CORE</span>
+          </div>
+
+          <div class="pack-symbol">₿</div>
+
+          <h3>Investing</h3>
+
+          <p>
+            Markets, financial concepts, analysis,
+            strategies, and research workflows.
+          </p>
+
+          <div class="pack-footer">
+            <span>KNOWLEDGE</span>
+            <span>→</span>
+          </div>
         </article>
 
       </div>
@@ -122,101 +278,57 @@
     </section>
 
 
-    <!-- PACKS -->
-    <section id="packs" class="section packs-section">
+    <section class="process-section section-dark section" id="process">
 
       <div class="section-heading reveal">
-        <span>02 / AI PACKS</span>
-        <h2>Give AI a purpose.</h2>
-      </div>
-
-      <div class="packs-layout">
-
-        <div class="pack-list">
-
-          <button class="pack-item active" data-pack="math">
-            <span>∑</span>
-            Math
-          </button>
-
-          <button class="pack-item" data-pack="coding">
-            <span>&lt;/&gt;</span>
-            Coding
-          </button>
-
-          <button class="pack-item" data-pack="aviation">
-            <span>✈</span>
-            Aviation
-          </button>
-
-          <button class="pack-item" data-pack="german">
-            <span>DE</span>
-            German
-          </button>
-
-          <button class="pack-item" data-pack="investing">
-            <span>₩</span>
-            Investing
-          </button>
-
+        <div>
+          <p class="eyebrow">03 / HOW IT WORKS</p>
+          <h2>Build your own<br><span>AI ecosystem.</span></h2>
         </div>
-
-
-        <div class="pack-display reveal">
-
-          <div class="pack-icon">∑</div>
-
-          <h3>Math Pack</h3>
-
-          <p>
-            개념 이해부터 문제 풀이까지.
-            수학 학습을 하나의 AI 환경으로 연결합니다.
-          </p>
-
-          <div class="pack-status">
-            <span></span>
-            PACK READY
-          </div>
-
-        </div>
-
       </div>
 
-    </section>
+      <div class="process-line">
 
-
-    <!-- HOW -->
-    <section class="section dark-section">
-
-      <div class="section-heading reveal">
-        <span>03 / HOW IT WORKS</span>
-        <h2>From information<br>to intelligence.</h2>
-      </div>
-
-      <div class="steps">
-
-        <div class="step reveal">
-          <span>01</span>
+        <div class="process-item reveal">
+          <div class="process-index">01</div>
           <h3>Select</h3>
-          <p>필요한 AI Pack을 선택합니다.</p>
+          <p>
+            Choose the Pack that matches
+            your current objective.
+          </p>
         </div>
 
-        <div class="step reveal">
-          <span>02</span>
+        <div class="process-connector"></div>
+
+        <div class="process-item reveal delay-one">
+          <div class="process-index">02</div>
           <h3>Execute</h3>
-          <p>AI가 선택된 환경에서 작업을 실행합니다.</p>
+          <p>
+            PANTHOM combines the AI model
+            with specialized knowledge.
+          </p>
         </div>
 
-        <div class="step reveal">
-          <span>03</span>
+        <div class="process-connector"></div>
+
+        <div class="process-item reveal delay-two">
+          <div class="process-index">03</div>
           <h3>Expand</h3>
-          <p>새로운 지식과 기능을 연결합니다.</p>
+          <p>
+            Add more Packs and build
+            a personalized AI environment.
+          </p>
         </div>
 
-        <div class="step reveal">
-          <span>04</span>
+        <div class="process-connector"></div>
+
+        <div class="process-item reveal">
+          <div class="process-index">04</div>
           <h3>Share</h3>
-          <p>만든 Pack과 지식을 다른 사람과 공유합니다.</p>
+          <p>
+            Publish Packs and become
+            part of the PANTHOM ecosystem.
+          </p>
         </div>
 
       </div>
@@ -224,187 +336,256 @@
     </section>
 
 
-    <!-- MARKETPLACE -->
-    <section id="marketplace" class="section">
+    <section class="marketplace-section section" id="marketplace">
 
       <div class="section-heading reveal">
-        <span>04 / MARKETPLACE</span>
-        <h2>AI becomes<br>a community.</h2>
+        <div>
+          <p class="eyebrow">04 / MARKETPLACE</p>
+          <h2>Intelligence is<br><span>community-built.</span></h2>
+        </div>
+
+        <p class="section-description">
+          Creators can build, publish, and distribute
+          their own AI Packs.
+        </p>
       </div>
 
       <div class="market-grid">
 
-        <article class="market-card reveal">
-          <span>CREATOR</span>
-          <h3>Create</h3>
-          <p>
-            누구나 자신만의 AI Pack을 만들 수 있습니다.
-          </p>
-        </article>
+        <div class="market-main reveal">
+          <div class="market-orb"></div>
 
-        <article class="market-card reveal">
-          <span>PACK</span>
-          <h3>Discover</h3>
-          <p>
-            다른 사람들이 만든 다양한 Pack을 탐색합니다.
-          </p>
-        </article>
+          <span class="market-label">CREATOR ECONOMY</span>
 
-        <article class="market-card reveal">
-          <span>COMMUNITY</span>
-          <h3>Share</h3>
+          <h3>
+            Build something<br>
+            worth sharing.
+          </h3>
+
           <p>
-            지식과 작업 방식을 서로 공유합니다.
+            Turn your knowledge into an AI Pack.
+            Publish it to the marketplace and
+            connect with users around the world.
           </p>
-        </article>
+
+          <a href="#creator" class="text-link">Become a Creator →</a>
+        </div>
+
+        <div class="market-side">
+
+          <article class="mini-card reveal">
+            <span>01</span>
+            <h4>Creator</h4>
+            <p>Build specialized AI experiences.</p>
+          </article>
+
+          <article class="mini-card reveal delay-one">
+            <span>02</span>
+            <h4>Pack</h4>
+            <p>Package knowledge into reusable systems.</p>
+          </article>
+
+          <article class="mini-card reveal delay-two">
+            <span>03</span>
+            <h4>Community</h4>
+            <p>Discover and share new intelligence.</p>
+          </article>
+
+        </div>
 
       </div>
 
     </section>
 
 
-    <!-- ENTERPRISE -->
-    <section id="enterprise" class="section enterprise-section">
+    <section class="enterprise-section section-dark section" id="enterprise">
 
-      <div class="enterprise-content reveal">
+      <div class="enterprise-layout">
 
-        <span>05 / ENTERPRISE</span>
+        <div class="enterprise-content reveal">
+          <p class="eyebrow">05 / ENTERPRISE</p>
+
+          <h2>
+            Your AI.<br>
+            Your infrastructure.
+          </h2>
+
+          <p>
+            Enterprise deployments can run private AI environments
+            designed around internal data, security requirements,
+            and custom workflows.
+          </p>
+
+          <div class="enterprise-list">
+            <div>
+              <span>01</span>
+              <strong>Private AI</strong>
+            </div>
+
+            <div>
+              <span>02</span>
+              <strong>Offline Server</strong>
+            </div>
+
+            <div>
+              <span>03</span>
+              <strong>Custom Infrastructure</strong>
+            </div>
+
+            <div>
+              <span>04</span>
+              <strong>Security First</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="server-visual reveal delay-one">
+          <div class="server-core"></div>
+
+          <div class="server-ring ring-a"></div>
+          <div class="server-ring ring-b"></div>
+          <div class="server-ring ring-c"></div>
+
+          <div class="server-data data-a">PANTHOM CORE</div>
+          <div class="server-data data-b">LOCAL MODEL</div>
+          <div class="server-data data-c">SECURE NODE</div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="creator-section section" id="creator">
+
+      <div class="creator-banner reveal">
+
+        <div class="creator-number">06</div>
+
+        <div class="creator-text">
+          <p class="eyebrow">CREATOR PROGRAM</p>
+
+          <h2>
+            Anyone can<br>
+            build a Pack.
+          </h2>
+
+          <p>
+            Your expertise can become intelligence
+            that other people can use.
+          </p>
+        </div>
+
+        <div class="creator-action">
+          <a href="#start" class="primary-button">Create a Pack</a>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="roadmap-section section-dark section" id="roadmap">
+
+      <div class="section-heading reveal">
+        <div>
+          <p class="eyebrow">07 / ROADMAP</p>
+          <h2>Built for the<br><span>long run.</span></h2>
+        </div>
+      </div>
+
+      <div class="timeline">
+
+        <div class="timeline-item active reveal">
+          <div class="timeline-year">2026</div>
+
+          <div class="timeline-point"></div>
+
+          <div class="timeline-content">
+            <h3>Foundation</h3>
+            <p>
+              PANTHOM AI, core Packs,
+              creator system, and initial marketplace.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-year">2027</div>
+
+          <div class="timeline-point"></div>
+
+          <div class="timeline-content">
+            <h3>Ecosystem</h3>
+            <p>
+              Expanded Pack marketplace,
+              creator tools, and deeper AI integration.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-year">2028</div>
+
+          <div class="timeline-point"></div>
+
+          <div class="timeline-content">
+            <h3>Infrastructure</h3>
+            <p>
+              Enterprise AI infrastructure,
+              private deployments, and global expansion.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="philosophy-section section">
+
+      <div class="philosophy-inner reveal">
+
+        <p class="eyebrow">08 / PHILOSOPHY</p>
 
         <h2>
-          Your AI.<br>
-          Your infrastructure.
+          Endless info,<br>
+          <span>One AI.</span>
         </h2>
 
+        <div class="philosophy-line"></div>
+
         <p>
-          PANTHOM Enterprise provides private AI,
-          offline infrastructure and controlled environments
-          for organizations that require greater security.
+          PANTHOM is not just another AI model.
+          It is a system for connecting intelligence,
+          knowledge, people, and infrastructure.
         </p>
 
-        <div class="enterprise-features">
-
-          <div>
-            <strong>PRIVATE AI</strong>
-            <span>Dedicated intelligence</span>
-          </div>
-
-          <div>
-            <strong>OFFLINE SERVER</strong>
-            <span>Independent infrastructure</span>
-          </div>
-
-          <div>
-            <strong>SECURITY</strong>
-            <span>Controlled data environment</span>
-          </div>
-
-        </div>
-
       </div>
 
     </section>
 
 
-    <!-- CREATOR -->
-    <section class="section creator-section">
+    <section class="cta-section" id="start">
 
-      <div class="section-heading reveal">
-        <span>06 / CREATOR PROGRAM</span>
-        <h2>Build your own<br>intelligence.</h2>
-      </div>
+      <div class="cta-grid"></div>
 
-      <div class="terminal reveal">
+      <div class="cta-content reveal">
 
-        <div class="terminal-top">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-
-        <div class="terminal-body">
-          <p>$ pantom create-pack</p>
-          <p class="terminal-text">
-            Creating your AI Pack...
-          </p>
-          <p>
-            ✓ Knowledge loaded
-          </p>
-          <p>
-            ✓ AI configuration complete
-          </p>
-          <p>
-            ✓ Pack published
-          </p>
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ROADMAP -->
-    <section id="roadmap" class="section roadmap-section">
-
-      <div class="section-heading reveal">
-        <span>07 / ROADMAP</span>
-        <h2>Building the future.</h2>
-      </div>
-
-      <div class="roadmap">
-
-        <div class="roadmap-item reveal">
-          <span>2026</span>
-          <h3>PANTHOM V1</h3>
-          <p>
-            Core AI platform and initial AI Packs.
-          </p>
-        </div>
-
-        <div class="roadmap-item reveal">
-          <span>2027</span>
-          <h3>CREATOR ECOSYSTEM</h3>
-          <p>
-            Marketplace, creators and expanded Pack ecosystem.
-          </p>
-        </div>
-
-        <div class="roadmap-item reveal">
-          <span>2028</span>
-          <h3>PANTHOM INFRASTRUCTURE</h3>
-          <p>
-            Enterprise AI, offline infrastructure
-            and global expansion.
-          </p>
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- PHILOSOPHY -->
-    <section class="philosophy">
-
-      <p>ENDLESS INFO.</p>
-      <p class="outline">ONE AI.</p>
-
-    </section>
-
-
-    <!-- CTA -->
-    <section id="start" class="final-cta">
-
-      <div class="reveal">
-
-        <span>THE NEXT STEP</span>
+        <p class="eyebrow">09 / BEGIN</p>
 
         <h2>
           Start with<br>
-          PANTHOM.
+          <span>PANTHOM.</span>
         </h2>
 
-        <a href="#home" class="button primary">
-          PANTHOM 시작하기 →
+        <p>
+          The next layer of AI starts here.
+        </p>
+
+        <a href="#hero" class="primary-button large-button">
+          Enter PANTHOM
         </a>
 
       </div>
@@ -414,20 +595,28 @@
   </main>
 
 
-  <!-- FOOTER -->
-  <footer>
+  <footer class="footer">
 
-    <div>
-      <strong>PANTHOM</strong>
-      <p>Endless info. One AI.</p>
+    <div class="footer-brand">
+      <div class="logo">PANTHOM</div>
+      <p>Endless info, One AI.</p>
     </div>
 
-    <span>© <span id="year"></span> PANTHOM</span>
+    <div class="footer-links">
+      <a href="#ai">AI</a>
+      <a href="#packs">Packs</a>
+      <a href="#marketplace">Marketplace</a>
+      <a href="#enterprise">Enterprise</a>
+      <a href="#roadmap">Roadmap</a>
+    </div>
+
+    <div class="footer-copy">
+      © 2026 PANTHOM. All rights reserved.
+    </div>
 
   </footer>
 
 
-  <!-- JavaScript -->
   <script src="./script.js"></script>
 
 </body>
