@@ -1,7 +1,8 @@
 name = "panthom"
+main = "worker.js"
 compatibility_date = "2026-09-12"
 
 [assets]
 directory = "."
-
-[vars]
+binding = "ASSETS"
+run_worker_first = ["/api/*"]
