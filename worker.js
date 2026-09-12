@@ -29,7 +29,7 @@ export default {
           },
           body: JSON.stringify({
             from: "PANTHOM <contact@panthom.online>",
-            to: ["YOUR_OUTLOOK_EMAIL"],
+           to: ["kimkuris@icloud.com"],
             reply_to: email,
             subject: `[PANTHOM Contact] ${subject}`,
             html: `
