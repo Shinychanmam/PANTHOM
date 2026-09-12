@@ -1,597 +1,716 @@
-/* =========================================================
-   PANTHOM V4
-   Interactive Website Script
-   ========================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-document.addEventListener("DOMContentLoaded", () => {
+html {
+  scroll-behavior: smooth;
+}
 
-  /* ---------------------------------------------------------
-     1. Scroll Reveal
-     --------------------------------------------------------- */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #050505;
+  color: #fff;
+  overflow-x: hidden;
+}
 
-  const revealElements = document.querySelectorAll(
-    ".reveal, .reveal-left, .reveal-right, .reveal-scale"
-  );
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("active");
-        }
-      });
-    },
-    {
-      threshold: 0.12
-    }
-  );
+button {
+  font: inherit;
+}
 
-  revealElements.forEach((element) => {
-    revealObserver.observe(element);
-  });
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6vw;
+  z-index: 1000;
+  background: rgba(5, 5, 5, 0.72);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
 
+.logo {
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 4px;
+}
 
-  /* ---------------------------------------------------------
-     2. Scroll Progress Bar
-     --------------------------------------------------------- */
+.navbar nav {
+  display: flex;
+  gap: 34px;
+}
 
-  const progressBar = document.createElement("div");
+.navbar nav a {
+  color: #aaa;
+  font-size: 13px;
+  transition: 0.3s;
+}
 
-  progressBar.className = "scroll-progress";
+.navbar nav a:hover {
+  color: #fff;
+}
 
-  progressBar.innerHTML = `
-    <div class="scroll-progress-bar"></div>
-  `;
+.nav-button {
+  padding: 11px 20px;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 100px;
+  font-size: 13px;
+}
 
-  document.body.appendChild(progressBar);
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 140px 9vw 80px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 75% 50%, #16233c 0%, transparent 35%),
+    #050505;
+}
 
-  const progress = progressBar.querySelector(".scroll-progress-bar");
+.hero-content {
+  max-width: 650px;
+  position: relative;
+  z-index: 2;
+}
 
-  function updateProgress() {
-    const scrollTop = window.scrollY;
-    const documentHeight =
-      document.documentElement.scrollHeight - window.innerHeight;
+.eyebrow,
+.section-heading span,
+.enterprise-content > span,
+.final-cta span {
+  color: #7d9cff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
 
-    const percentage =
-      documentHeight > 0
-        ? (scrollTop / documentHeight) * 100
-        : 0;
+.hero h1 {
+  margin-top: 24px;
+  font-size: clamp(60px, 9vw, 125px);
+  line-height: 0.9;
+  letter-spacing: -7px;
+}
 
-    progress.style.width = `${percentage}%`;
+.hero h1 span {
+  background: linear-gradient(90deg, #fff, #718dff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  max-width: 560px;
+  margin-top: 32px;
+  color: #999;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 14px;
+  margin-top: 38px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 25px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.button.primary {
+  background: #fff;
+  color: #050505;
+}
+
+.button.primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(255,255,255,0.15);
+}
+
+.button.secondary {
+  border: 1px solid #333;
+  color: #bbb;
+}
+
+.button.secondary:hover {
+  border-color: #777;
+  color: #fff;
+}
+
+.hero-orbit {
+  width: 440px;
+  height: 440px;
+  position: relative;
+  margin-right: 4vw;
+}
+
+.orbit {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(120,145,255,0.3);
+  border-radius: 50%;
+}
+
+.orbit-1 {
+  transform: rotateX(65deg);
+  animation: spin 12s linear infinite;
+}
+
+.orbit-2 {
+  transform: rotateY(65deg);
+  animation: spinReverse 16s linear infinite;
+}
+
+.orbit-3 {
+  transform: rotate(45deg) scale(0.75);
+  animation: spin 9s linear infinite;
+}
+
+.core {
+  position: absolute;
+  inset: 35%;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: radial-gradient(circle, #7691ff, #17234a);
+  box-shadow:
+    0 0 60px #536eff,
+    0 0 140px rgba(83,110,255,0.3);
+}
+
+.core span {
+  font-size: 48px;
+  font-weight: 900;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(405deg);
+  }
+}
+
+@keyframes spinReverse {
+  to {
+    transform: rotateY(-295deg);
+  }
+}
+
+.section {
+  padding: 150px 9vw;
+  position: relative;
+}
+
+.dark-section {
+  background: #090909;
+}
+
+.section-heading {
+  margin-bottom: 70px;
+}
+
+.section-heading h2 {
+  margin-top: 20px;
+  font-size: clamp(44px, 6vw, 80px);
+  line-height: 0.95;
+  letter-spacing: -4px;
+}
+
+.mode-grid,
+.market-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.mode-card,
+.market-card {
+  min-height: 330px;
+  padding: 38px;
+  border: 1px solid #202020;
+  background: #0a0a0a;
+  transition: 0.4s;
+}
+
+.mode-card:hover,
+.market-card:hover {
+  transform: translateY(-8px);
+  border-color: #4d65b5;
+}
+
+.mode-card.featured {
+  background: linear-gradient(145deg, #111a36, #080808);
+  border-color: #31478d;
+}
+
+.card-number {
+  color: #586eb8;
+  font-size: 13px;
+}
+
+.mode-card h3,
+.market-card h3 {
+  margin-top: 70px;
+  font-size: 30px;
+}
+
+.mode-card p,
+.market-card p {
+  margin-top: 20px;
+  color: #888;
+  line-height: 1.7;
+}
+
+.mode-card strong {
+  display: block;
+  margin-top: 30px;
+  color: #657dce;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.packs-layout {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 30px;
+}
+
+.pack-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pack-item {
+  text-align: left;
+  border: 1px solid #222;
+  background: #090909;
+  color: #888;
+  padding: 20px 24px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.pack-item span {
+  display: inline-block;
+  width: 45px;
+  color: #7188e8;
+}
+
+.pack-item:hover,
+.pack-item.active {
+  color: #fff;
+  border-color: #5069c4;
+  background: #10162a;
+}
+
+.pack-display {
+  min-height: 430px;
+  padding: 55px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid #222;
+  background:
+    radial-gradient(circle at 80% 20%, #162047, transparent 45%),
+    #090909;
+}
+
+.pack-icon {
+  width: 80px;
+  height: 80px;
+  display: grid;
+  place-items: center;
+  border-radius: 20px;
+  background: #151f40;
+  color: #91a5ff;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.pack-display h3 {
+  margin-top: 35px;
+  font-size: 48px;
+}
+
+.pack-display p {
+  max-width: 600px;
+  margin-top: 18px;
+  color: #888;
+  line-height: 1.8;
+}
+
+.pack-status {
+  margin-top: 35px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #657dce;
+}
+
+.pack-status span {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: #718cff;
+  box-shadow: 0 0 10px #718cff;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.step {
+  min-height: 280px;
+  padding: 35px;
+  border-left: 1px solid #252525;
+}
+
+.step span {
+  color: #6178d4;
+}
+
+.step h3 {
+  margin-top: 80px;
+  font-size: 30px;
+}
+
+.step p {
+  margin-top: 15px;
+  color: #777;
+  line-height: 1.6;
+}
+
+.market-card {
+  min-height: 300px;
+}
+
+.market-card span {
+  font-size: 10px;
+  color: #637bd7;
+  letter-spacing: 2px;
+}
+
+.enterprise-section {
+  background:
+    radial-gradient(circle at 80% 50%, #192653, transparent 35%),
+    #070707;
+}
+
+.enterprise-content {
+  max-width: 900px;
+}
+
+.enterprise-content h2 {
+  margin-top: 20px;
+  font-size: clamp(50px, 7vw, 95px);
+  line-height: 0.9;
+  letter-spacing: -5px;
+}
+
+.enterprise-content > p {
+  max-width: 650px;
+  margin-top: 35px;
+  color: #888;
+  line-height: 1.8;
+}
+
+.enterprise-features {
+  display: flex;
+  gap: 45px;
+  margin-top: 55px;
+}
+
+.enterprise-features div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.enterprise-features strong {
+  font-size: 12px;
+}
+
+.enterprise-features span {
+  color: #666;
+  font-size: 11px;
+}
+
+.creator-section {
+  background: #080808;
+}
+
+.terminal {
+  max-width: 900px;
+  margin: auto;
+  border: 1px solid #252525;
+  background: #030303;
+  box-shadow: 0 30px 100px rgba(0,0,0,0.5);
+}
+
+.terminal-top {
+  display: flex;
+  gap: 7px;
+  padding: 14px 18px;
+  border-bottom: 1px solid #222;
+}
+
+.terminal-top span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #333;
+}
+
+.terminal-body {
+  padding: 35px;
+  font-family: monospace;
+  line-height: 2;
+  color: #778cff;
+}
+
+.terminal-body p {
+  color: #aaa;
+}
+
+.terminal-body p:first-child {
+  color: #fff;
+}
+
+.roadmap {
+  position: relative;
+  max-width: 900px;
+  margin: auto;
+}
+
+.roadmap::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background: #292929;
+}
+
+.roadmap-item {
+  position: relative;
+  padding: 0 0 90px 55px;
+}
+
+.roadmap-item::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 4px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #7188ed;
+  box-shadow: 0 0 20px #7188ed;
+}
+
+.roadmap-item span {
+  color: #7087e8;
+  font-size: 12px;
+}
+
+.roadmap-item h3 {
+  margin-top: 12px;
+  font-size: 30px;
+}
+
+.roadmap-item p {
+  margin-top: 12px;
+  color: #777;
+}
+
+.philosophy {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10vw;
+  overflow: hidden;
+  background: #030303;
+}
+
+.philosophy p {
+  font-size: clamp(60px, 13vw, 190px);
+  font-weight: 900;
+  line-height: 0.8;
+  letter-spacing: -10px;
+  white-space: nowrap;
+}
+
+.philosophy .outline {
+  color: transparent;
+  -webkit-text-stroke: 1px #555;
+}
+
+.final-cta {
+  min-height: 80vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  background:
+    radial-gradient(circle, #172653, transparent 50%),
+    #050505;
+}
+
+.final-cta h2 {
+  margin: 25px 0 40px;
+  font-size: clamp(65px, 10vw, 130px);
+  line-height: 0.85;
+  letter-spacing: -7px;
+}
+
+footer {
+  padding: 45px 9vw;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #1b1b1b;
+  color: #666;
+}
+
+footer strong {
+  color: #fff;
+  letter-spacing: 3px;
+}
+
+footer p {
+  margin-top: 8px;
+  font-size: 12px;
+}
+
+footer > span {
+  font-size: 11px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(45px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 900px) {
+
+  .navbar nav {
+    display: none;
   }
 
-  window.addEventListener("scroll", updateProgress);
-  updateProgress();
-
-
-  /* ---------------------------------------------------------
-     3. Navigation
-     --------------------------------------------------------- */
-
-  const navLinks = document.querySelectorAll(
-    'a[href^="#"]'
-  );
-
-  navLinks.forEach((link) => {
-
-    link.addEventListener("click", (event) => {
-
-      const targetId = link.getAttribute("href");
-
-      if (!targetId || targetId === "#") return;
-
-      const target = document.querySelector(targetId);
-
-      if (!target) return;
-
-      event.preventDefault();
-
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-
-    });
-
-  });
-
-
-  /* ---------------------------------------------------------
-     4. Active Navigation Section
-     --------------------------------------------------------- */
-
-  const sections = document.querySelectorAll("section[id]");
-
-  const navigationItems = document.querySelectorAll(
-    ".nav-links a"
-  );
-
-  const sectionObserver = new IntersectionObserver(
-    (entries) => {
-
-      entries.forEach((entry) => {
-
-        if (!entry.isIntersecting) return;
-
-        navigationItems.forEach((link) => {
-          link.classList.remove("active");
-        });
-
-        const activeLink = document.querySelector(
-          `.nav-links a[href="#${entry.target.id}"]`
-        );
-
-        if (activeLink) {
-          activeLink.classList.add("active");
-        }
-
-      });
-
-    },
-    {
-      threshold: 0.45
-    }
-  );
-
-  sections.forEach((section) => {
-    sectionObserver.observe(section);
-  });
-
-
-  /* ---------------------------------------------------------
-     5. Hero Mouse Parallax
-     --------------------------------------------------------- */
-
-  const hero = document.querySelector(".hero");
-  const heroVisual = document.querySelector(".hero-visual");
-
-  if (hero && heroVisual) {
-
-    hero.addEventListener("mousemove", (event) => {
-
-      const rect = hero.getBoundingClientRect();
-
-      const x =
-        (event.clientX - rect.left) / rect.width - 0.5;
-
-      const y =
-        (event.clientY - rect.top) / rect.height - 0.5;
-
-      heroVisual.style.transform = `
-        translate(${x * 18}px, ${y * 18}px)
-      `;
-
-    });
-
-    hero.addEventListener("mouseleave", () => {
-
-      heroVisual.style.transform =
-        "translate(0, 0)";
-
-    });
-
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 70px;
   }
 
-
-  /* ---------------------------------------------------------
-     6. AI Pack System
-     --------------------------------------------------------- */
-
-  const packButtons = document.querySelectorAll(
-    ".pack-item"
-  );
-
-  const packTitle = document.querySelector(
-    ".pack-display h3"
-  );
-
-  const packDescription = document.querySelector(
-    ".pack-display p"
-  );
-
-  const packIcon = document.querySelector(
-    ".pack-icon"
-  );
-
-  const packData = {
-
-    math: {
-      title: "Math Pack",
-      icon: "∑",
-      description:
-        "개념 이해부터 문제 풀이까지. 수학 학습을 하나의 AI 환경으로 연결합니다."
-    },
-
-    coding: {
-      title: "Coding Pack",
-      icon: "</>",
-      description:
-        "코드 작성, 디버깅, 구조 설계까지 개발 작업을 빠르게 연결합니다."
-    },
-
-    aviation: {
-      title: "Aviation Pack",
-      icon: "✈",
-      description:
-        "항공기, 비행 원리, 항공 시스템과 관련된 정보를 하나의 AI로 탐색합니다."
-    },
-
-    german: {
-      title: "German Pack",
-      icon: "DE",
-      description:
-        "독일어 단어, 문법, 회화와 학습 자료를 하나의 Pack으로 관리합니다."
-    },
-
-    investing: {
-      title: "Investing Pack",
-      icon: "₩",
-      description:
-        "시장 데이터와 투자 분석 도구를 하나의 작업 공간으로 연결합니다."
-    }
-
-  };
-
-
-  function changePack(packName) {
-
-    const data = packData[packName];
-
-    if (!data) return;
-
-    if (packTitle) {
-      packTitle.textContent = data.title;
-    }
-
-    if (packDescription) {
-      packDescription.textContent =
-        data.description;
-    }
-
-    if (packIcon) {
-      packIcon.textContent = data.icon;
-    }
-
-    packButtons.forEach((button) => {
-      button.classList.remove("active");
-    });
-
-    const selected =
-      document.querySelector(
-        `[data-pack="${packName}"]`
-      );
-
-    if (selected) {
-      selected.classList.add("active");
-    }
-
+  .hero-orbit {
+    width: 300px;
+    height: 300px;
+    align-self: center;
+    margin: 0;
   }
 
-
-  packButtons.forEach((button) => {
-
-    button.addEventListener("click", () => {
-
-      const packName =
-        button.dataset.pack;
-
-      changePack(packName);
-
-    });
-
-  });
-
-
-  /* ---------------------------------------------------------
-     7. Button Interaction
-     --------------------------------------------------------- */
-
-  const buttons = document.querySelectorAll(
-    ".btn"
-  );
-
-  buttons.forEach((button) => {
-
-    button.addEventListener("click", () => {
-
-      button.classList.add("clicked");
-
-      setTimeout(() => {
-        button.classList.remove("clicked");
-      }, 350);
-
-    });
-
-  });
-
-
-  /* ---------------------------------------------------------
-     8. Cards Tilt Effect
-     --------------------------------------------------------- */
-
-  const cards = document.querySelectorAll(
-    ".mode-card, .market-card, .enterprise-card"
-  );
-
-  cards.forEach((card) => {
-
-    card.addEventListener("mousemove", (event) => {
-
-      const rect =
-        card.getBoundingClientRect();
-
-      const x =
-        (event.clientX - rect.left) /
-        rect.width;
-
-      const y =
-        (event.clientY - rect.top) /
-        rect.height;
-
-      const rotateX =
-        (0.5 - y) * 5;
-
-      const rotateY =
-        (x - 0.5) * 5;
-
-      card.style.transform = `
-        perspective(900px)
-        rotateX(${rotateX}deg)
-        rotateY(${rotateY}deg)
-        translateY(-4px)
-      `;
-
-    });
-
-    card.addEventListener("mouseleave", () => {
-
-      card.style.transform =
-        "perspective(900px) rotateX(0) rotateY(0) translateY(0)";
-
-    });
-
-  });
-
-
-  /* ---------------------------------------------------------
-     9. Roadmap Animation
-     --------------------------------------------------------- */
-
-  const roadmapItems =
-    document.querySelectorAll(
-      ".roadmap-item"
-    );
-
-  const roadmapObserver =
-    new IntersectionObserver(
-      (entries) => {
-
-        entries.forEach((entry) => {
-
-          if (entry.isIntersecting) {
-
-            entry.target.classList.add(
-              "roadmap-active"
-            );
-
-          }
-
-        });
-
-      },
-      {
-        threshold: 0.3
-      }
-    );
-
-  roadmapItems.forEach((item) => {
-    roadmapObserver.observe(item);
-  });
-
-
-  /* ---------------------------------------------------------
-     10. Terminal Typing Effect
-     --------------------------------------------------------- */
-
-  const terminal =
-    document.querySelector(".terminal-text");
-
-  if (terminal) {
-
-    const originalText =
-      terminal.textContent;
-
-    terminal.textContent = "";
-
-    let index = 0;
-
-    function typeTerminal() {
-
-      if (index < originalText.length) {
-
-        terminal.textContent +=
-          originalText.charAt(index);
-
-        index++;
-
-        setTimeout(
-          typeTerminal,
-          35
-        );
-
-      }
-
-    }
-
-    const terminalObserver =
-      new IntersectionObserver(
-        (entries) => {
-
-          if (
-            entries[0].isIntersecting
-          ) {
-
-            typeTerminal();
-
-            terminalObserver.disconnect();
-
-          }
-
-        },
-        {
-          threshold: 0.5
-        }
-      );
-
-    terminalObserver.observe(terminal);
-
+  .mode-grid,
+  .market-grid,
+  .steps {
+    grid-template-columns: 1fr;
   }
 
-
-  /* ---------------------------------------------------------
-     11. Number Counter
-     --------------------------------------------------------- */
-
-  const counters =
-    document.querySelectorAll(
-      "[data-counter]"
-    );
-
-  counters.forEach((counter) => {
-
-    const target =
-      Number(counter.dataset.counter);
-
-    if (Number.isNaN(target)) return;
-
-    let current = 0;
-
-    const duration = 1200;
-
-    const startTime =
-      performance.now();
-
-    function animateCounter(time) {
-
-      const progress =
-        Math.min(
-          (time - startTime) /
-          duration,
-          1
-        );
-
-      current =
-        Math.floor(
-          progress * target
-        );
-
-      counter.textContent =
-        current.toLocaleString();
-
-      if (progress < 1) {
-
-        requestAnimationFrame(
-          animateCounter
-        );
-
-      }
-
-    }
-
-    const counterObserver =
-      new IntersectionObserver(
-        (entries) => {
-
-          if (
-            entries[0].isIntersecting
-          ) {
-
-            requestAnimationFrame(
-              animateCounter
-            );
-
-            counterObserver.disconnect();
-
-          }
-
-        },
-        {
-          threshold: 0.5
-        }
-      );
-
-    counterObserver.observe(counter);
-
-  });
-
-
-  /* ---------------------------------------------------------
-     12. Floating Background
-     --------------------------------------------------------- */
-
-  const background =
-    document.querySelector(
-      ".hero-bg"
-    );
-
-  if (background) {
-
-    window.addEventListener(
-      "scroll",
-      () => {
-
-        const movement =
-          window.scrollY * 0.12;
-
-        background.style.transform =
-          `translateY(${movement}px)`;
-
-      },
-      {
-        passive: true
-      }
-    );
-
+  .packs-layout {
+    grid-template-columns: 1fr;
   }
 
+  .enterprise-features {
+    flex-direction: column;
+    gap: 25px;
+  }
 
-  /* ---------------------------------------------------------
-     13. Page Load Animation
-     --------------------------------------------------------- */
+  .philosophy p {
+    white-space: normal;
+    letter-spacing: -4px;
+  }
+}
 
-  document.body.classList.add(
-    "page-loaded"
-  );
+@media (max-width: 600px) {
 
+  .navbar {
+    padding: 0 20px;
+  }
 
-  /* ---------------------------------------------------------
-     14. Dynamic Current Year
-     --------------------------------------------------------- */
+  .nav-button {
+    display: none;
+  }
 
-  const yearElements =
-    document.querySelectorAll(
-      "[data-year]"
-    );
+  .section {
+    padding: 100px 20px;
+  }
 
-  yearElements.forEach((element) => {
+  .hero {
+    padding: 120px 20px 70px;
+  }
 
-    element.textContent =
-      new Date().getFullYear();
+  .hero h1 {
+    font-size: 60px;
+    letter-spacing: -4px;
+  }
 
-  });
+  .hero-buttons {
+    flex-direction: column;
+  }
 
+  .button {
+    width: 100%;
+  }
 
-  /* ---------------------------------------------------------
-     15. Console
-     --------------------------------------------------------- */
+  .pack-display {
+    padding: 30px;
+  }
 
-  console.log(
-    "%cPANTHOM",
-    "font-size:32px;font-weight:800;"
-  );
+  .pack-display h3 {
+    font-size: 38px;
+  }
 
-  console.log(
-    "Endless info. One AI."
-  );
+  footer {
+    flex-direction: column;
+    gap: 25px;
+  }
+}
 
-});
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+
+}
